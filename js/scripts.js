@@ -8,6 +8,14 @@ DestinationList.prototype.addLocation = function (trip) {
   this.locations[trip.location] = trip
 }
 
+DestinationList.prototype.deleteTrip = function (location) {
+  if (this.locations[location] = undefined) {
+    return false;
+  }
+  delete this.locations[location]
+  return true
+}
+
 
 // Business Logic for  each Trip
 function Trip(location, landmarks, year, notes) {
