@@ -9,7 +9,7 @@ DestinationList.prototype.addLocation = function (trip) {
 }
 
 
-// Business Logic for Trip
+// Business Logic for  each Trip
 function Trip(location, landmarks, year, notes) {
   this.location = location
   this.landmarks = landmarks
@@ -18,7 +18,22 @@ function Trip(location, landmarks, year, notes) {
 }
 
 
-let destinationList = new DestinationList();
-let trip = new Trip("Texas", "Salt Lick", "2022", "it was fun!");
-destinationList.addLocation(trip);
-destinationList.locations;
+
+//User Interface Get Values
+$(function () {
+  $('form').submit(function (event) {
+    event.preventDefault()
+    const userLocation = $('#location').val()
+    const userLandmark = $('#landmark').val()
+    const userYear = $('#year').val()
+    const userNotes = $('#notes').val()
+
+    let destinationList = new DestinationList()
+    let trip = new Trip(userLocation, userLandmark, userYear, userNotes)
+    destinationList.addLocation(trip)
+    console.log(destinationList.locations)
+
+  })
+
+})
+
